@@ -15,15 +15,25 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Wrangler
-        run: npm install -g wrangler@4
+      - run: npm install -g wrangler@4
+
+      - name: 🔍 Debug secrets
+        run: |
+          echo "✅ CF_ACCOUNT_ID: $CF_ACCOUNT_ID"
+          echo "✅ CF_ZONE_ID: $CF_ZONE_ID"
+          echo "✅ CF_ROUTE: $CF_ROUTE"
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          CF_ROUTE: ${{ secrets.CF_ROUTE }}
 
       - name: Deploy to Cloudflare
         run: wrangler deploy
         env:
-          CF_ACCOUNT_ID: ${{secrets.CF_ACCOUNT_ID}}
-          CF_ZONE_ID: ${{secrets.CF_ZONE_ID}}
-          CF_ROUTE: ${{secrets.CF_ROUTE}}
-          CLOUDFLARE_API_TOKEN: ${{secrets.CF_API_TOKEN}}
-          OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
-          ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          CF_ROUTE: ${{ secrets.CF_ROUTE }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
