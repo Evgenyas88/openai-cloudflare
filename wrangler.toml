@@ -1,4 +1,4 @@
-name = "openai-proxy"
+name = "openai-cloudflare"
 main = "worker.js"
 type = "javascript"
 compatibility_date = "2024-06-01"
