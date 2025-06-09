@@ -1,7 +1,7 @@
-name = openai-cloudflare
-main = worker.js
-type = javascript
-compatibility_date = 2024-06-01
+name = "openai-cloudflare"
+main = "worker.js"
+type = "javascript"
+compatibility_date = "2024-06-01"
 workers_dev = false
 
 account_id = ${CF_ACCOUNT_ID}
