@@ -16,7 +16,7 @@ jobs:
           node-version: 18
 
       - name: Install Wrangler
-        run: npm install -g wrangler@3
+        run: npm install -g wrangler@4
 
       - name: Deploy to Cloudflare
         run: wrangler deploy
